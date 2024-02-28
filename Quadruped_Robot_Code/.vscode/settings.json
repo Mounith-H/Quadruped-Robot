@@ -1,0 +1,16 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "cmake.configureOnOpen": true,
+  "cortex-debug.gdbPath": "C:/ST/STM32CubeCLT/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+  "cortex-debug.openocdPath": "C:/ST/Tools/openocd-0.12.0-2/bin/openocd.exe",
+  "files.associations": {
+    "stdbool.h": "c",
+    "main.h": "c",
+    "stdio.h": "c",
+    "time.h": "c",
+    "signal.h": "c",
+    "times.h": "c",
+    "math.h": "c"
+  },
+  "cortex-debug.variableUseNaturalFormat": false,
+}
