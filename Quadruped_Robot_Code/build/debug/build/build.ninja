@@ -58,7 +58,7 @@ build cmake_object_order_depends_target_Quadruped_Robot_Code: phony || CMakeFile
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/main.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/main.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\main.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -66,7 +66,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/main.c.obj: C_COMPILER__Quadr
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_hal_msp.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/stm32f1xx_hal_msp.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\stm32f1xx_hal_msp.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -74,7 +74,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_hal_msp.c.obj: C_CO
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_it.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/stm32f1xx_it.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\stm32f1xx_it.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -82,7 +82,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_it.c.obj: C_COMPILE
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/syscalls.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/syscalls.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\syscalls.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -90,7 +90,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/syscalls.c.obj: C_COMPILER__Q
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/sysmem.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/sysmem.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\sysmem.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -98,7 +98,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/sysmem.c.obj: C_COMPILER__Qua
 build CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/system_stm32f1xx.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Core/Src/system_stm32f1xx.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src\system_stm32f1xx.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Src
@@ -110,10 +110,18 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Core/Startup/startup_stm32f103cbtx.s.o
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Core\Startup
 
+build CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/MPU6050.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Libraries/src/MPU6050.c || cmake_object_order_depends_target_Quadruped_Robot_Code
+  DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
+  DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Libraries\src\MPU6050.c.obj.d
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
+  INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
+  OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
+  OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Libraries\src
+
 build CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/pca9685.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Libraries/src/pca9685.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Libraries\src\pca9685.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Libraries\src
@@ -121,7 +129,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/pca9685.c.obj: C_COMPILE
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -129,7 +137,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -137,7 +145,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_exti.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -145,7 +153,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash_ex.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -153,7 +161,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -161,7 +169,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -169,7 +177,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -177,7 +185,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -185,7 +193,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -193,7 +201,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -201,7 +209,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -209,7 +217,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -217,7 +225,15 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
+  INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
+  OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
+  OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
+
+build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c || cmake_object_order_depends_target_Quadruped_Robot_Code
+  DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
+  DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c.obj.d
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -225,7 +241,7 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj: C_COMPILER__Quadruped_Robot_Code_Debug ../../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c || cmake_object_order_depends_target_Quadruped_Robot_Code
   DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
   DEP_FILE = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c.obj.d
-  FLAGS = -g -g3 -mcpu=cortex-m3
+  FLAGS = -g -g3 -fcommon -mcpu=cortex-m3
   INCLUDES = -I../../../Core/Inc -I../../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../../../Drivers/STM32F1xx_HAL_Driver/Inc -I../../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../../../Drivers/CMSIS/Include -I../../../Libraries/inc
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   OBJECT_FILE_DIR = CMakeFiles\Quadruped_Robot_Code.dir\Drivers\STM32F1xx_HAL_Driver\Src
@@ -238,10 +254,9 @@ build CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32
 #############################################
 # Link the executable Quadruped_Robot_Code.elf
 
-build Quadruped_Robot_Code.elf: C_EXECUTABLE_LINKER__Quadruped_Robot_Code_Debug CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/main.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_hal_msp.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_it.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/syscalls.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/sysmem.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/system_stm32f1xx.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Startup/startup_stm32f103cbtx.s.obj CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/pca9685.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+build Quadruped_Robot_Code.elf: C_EXECUTABLE_LINKER__Quadruped_Robot_Code_Debug CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/main.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_hal_msp.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/stm32f1xx_it.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/syscalls.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/sysmem.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Src/system_stm32f1xx.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Core/Startup/startup_stm32f103cbtx.s.obj CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/MPU6050.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Libraries/src/pca9685.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj CMakeFiles/Quadruped_Robot_Code.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
   FLAGS = -g
   LINK_FLAGS = -mcpu=cortex-m3 -T C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/STM32F103CBTX_FLASH.ld
-  LINK_PATH = -LC:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/Libraries
   OBJECT_DIR = CMakeFiles\Quadruped_Robot_Code.dir
   POST_BUILD = cmd.exe /C "cd /D C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\build\debug\build && C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin\arm-none-eabi-size.exe C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/build/debug/build/Quadruped_Robot_Code.elf && cd /D C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\build\debug\build && C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin\arm-none-eabi-objcopy.exe -O ihex C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/build/debug/build/Quadruped_Robot_Code.elf Quadruped_Robot_Code.hex && cd /D C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\build\debug\build && C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin\arm-none-eabi-objcopy.exe -O binary C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/build/debug/build/Quadruped_Robot_Code.elf Quadruped_Robot_Code.bin"
   PRE_LINK = cd .

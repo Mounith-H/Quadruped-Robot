@@ -62,7 +62,7 @@ main-build: Quadruped_Robot_Code.elf secondary-outputs
 
 # Tool invocations
 Quadruped_Robot_Code.elf Quadruped_Robot_Code.map: $(OBJS) $(USER_OBJS) C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Quadruped_Robot_Code.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Quadruped_Robot_Code.map" -Wl,--gc-sections -static -L"C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\Libraries" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "Quadruped_Robot_Code.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mouni\STM32CubeIDE\RVCE_EL_Project\Quadruped-Robot\Quadruped_Robot_Code\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Quadruped_Robot_Code.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

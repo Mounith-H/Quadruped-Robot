@@ -3,11 +3,13 @@
  *
  *  Created on: 20.01.2019
  *      Author: Mateusz Salamon
- *		mateusz@msalamon.pl
+ *  Edited on: 25.02.2024
+ *			Edited by: Mounith H
  *
  *      Website: https://msalamon.pl/nigdy-wiecej-multipleksowania-na-gpio!-max7219-w-akcji-cz-3/
  *      GitHub:  https://github.com/lamik/Servos_PWM_STM32_HAL
  */
+
 #include "stdbool.h"
 #ifndef PCA9685_H_
 #define PCA9685_H_

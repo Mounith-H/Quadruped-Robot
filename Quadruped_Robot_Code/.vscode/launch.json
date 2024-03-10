@@ -51,6 +51,10 @@
       "servertype": "openocd",
       "interface": "swd",
       "svdFile": "./STM32F103.svd",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
       "configFiles": [
         "interface/stlink.cfg",
         "target/stm32f1x.cfg"

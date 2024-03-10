@@ -10,7 +10,21 @@
     "time.h": "c",
     "signal.h": "c",
     "times.h": "c",
-    "math.h": "c"
+    "math.h": "c",
+    "cmath": "c",
+    "servo_configuration.h": "c",
+    "pca9685.h": "c",
+    "structs.h": "c",
+    "mpu6050.h": "c",
+    "stm32f1xx_hal_i2c.h": "c",
+    "mpuxx50.h": "c",
+    "updatefootposition.h": "c",
+    "updatelegangles.h": "c",
+    "rotatepoint.h": "c",
+    "moveleg.h": "c",
+    "initbody.h": "c",
+    "robot.h": "c",
+    "common_variables.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": false,
 }

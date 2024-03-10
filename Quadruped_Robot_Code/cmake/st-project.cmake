@@ -42,6 +42,7 @@ target_compile_options(
     "$<$<AND:$<CONFIG:Debug>,$<COMPILE_LANGUAGE:CXX>>:>"
     "$<$<AND:$<NOT:$<CONFIG:Debug>>,$<COMPILE_LANGUAGE:C>>:>"
     "$<$<AND:$<NOT:$<CONFIG:Debug>>,$<COMPILE_LANGUAGE:CXX>>:>"
+    "$<$<AND:$<CONFIG:Debug>,$<COMPILE_LANGUAGE:C>>:-fcommon>"
     "$<$<CONFIG:Debug>:-mcpu=cortex-m3>"
     "$<$<NOT:$<CONFIG:Debug>>:-mcpu=cortex-m3>"
 )
@@ -52,7 +53,6 @@ target_link_libraries(
 
 target_link_directories(
     ${TARGET_NAME} PRIVATE
-    "$<$<CONFIG:Debug>:${PROJECT_SOURCE_DIR}/Libraries>"
 )
 
 target_link_options(
@@ -73,6 +73,7 @@ target_sources(
     "Core\\Src\\sysmem.c"
     "Core\\Src\\system_stm32f1xx.c"
     "Core\\Startup\\startup_stm32f103cbtx.s"
+    "Libraries\\src\\MPU6050.c"
     "Libraries\\src\\pca9685.c"
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_cortex.c"
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_dma.c"
@@ -87,6 +88,7 @@ target_sources(
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_rcc.c"
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_tim_ex.c"
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_tim.c"
+    "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_uart.c"
     "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal.c"
 )
 

@@ -22,7 +22,14 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "pca9685.h"
+#include "MPU6050.h"
+
+#include "Robot.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,38 +39,55 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define SERVO_COUNT	5
+#define TRUE  1
+#define FALSE 0
+
+#define PI 3.14
+
+#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-void print_swo(const char *data, const uint32_t size)
-{
-    uint32_t i;
-    for(i = 0; i<size; i++)
-      ITM_SendChar(data[i]); /* core_cm4.h */
-}
 
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
+UART_HandleTypeDef huart2;
+
 /* USER CODE BEGIN PV */
-uint8_t ActiveServo;
+
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 /* USER CODE END 0 */
 
 /**
@@ -95,26 +119,65 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  PCA9685_Init(&hi2c1);
-  PCA9685_SetServoAngle(0, 0);
 
+  PCA9685_Init(&hi2c1);
+  robot_init();
+
+  HAL_GPIO_WritePin(LED_BUILTIN_GPIO_Port, LED_BUILTIN_Pin, GPIO_PIN_RESET);
+	HAL_Delay(1000);
+
+  updateFootPosition(&leg1, pos1);
+  updateFootPosition(&leg2, pos2);
+  updateFootPosition(&leg3, pos3);
+  updateFootPosition(&leg4, pos4);
+
+  updateLegAngles(&leg1, &body);
+  updateLegAngles(&leg2, &body);
+  updateLegAngles(&leg3, &body);
+  updateLegAngles(&leg4, &body);
+
+  moveLeg(&leg1, &body);
+  moveLeg(&leg2, &body);
+  moveLeg(&leg3, &body);
+  moveLeg(&leg4, &body);
+  HAL_Delay(1000);
+
+  // Check if IMU configured properly and block if it didn't
+  if(MPU_begin(&hi2c1, AD0_LOW, AFSR_4G, GFSR_500DPS, 0.98, 0.004) == TRUE)
+  {
+    HAL_GPIO_WritePin(LED_BUILTIN_GPIO_Port, LED_BUILTIN_Pin, 1);
+    printf("IMU INITIALIZED\n");
+  }
+  else
+  {
+    printf("ERROR!\r\n");
+    while (1)
+    {
+      HAL_GPIO_TogglePin(LED_BUILTIN_GPIO_Port, LED_BUILTIN_Pin);
+      HAL_Delay(250);
+    }
+  }
+
+  // Calibrate the IMU
+  printf("CALIBRATING... \r\n");
+  MPU_calibrateGyro(&hi2c1, 1500);
+  printf("CALIBRATION COMPLETE \r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    for (uint8_t Angle = 0; Angle < 180; Angle++)
-    {
-      PCA9685_SetServoAngle(ActiveServo, Angle);
-    }
-    HAL_Delay(5000);
-    for (uint16_t Angle = 180; Angle > 0; Angle--)
-    {
-      PCA9685_SetServoAngle(ActiveServo, Angle);
-    }
-    HAL_Delay(5000);
+    //Reads gyro data and calculates body tilt.
+    //MPU_readProcessedData(&hi2c1);
+    MPU_readProcessedDataLPF(&hi2c1);
+
+    robot_balance();
+
+    HAL_GPIO_TogglePin(LED_BUILTIN_GPIO_Port, LED_BUILTIN_Pin);
+    //HAL_Delay(200);
 
     /* USER CODE END WHILE */
 
@@ -197,6 +260,39 @@ static void MX_I2C1_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -228,16 +324,28 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int _write(int file, char *ptr, int len)
-{
-  (void)file;
-  int DataIdx;
+// int _write(int file, char *ptr, int len)
+// {
+//   (void)file;
+//   int DataIdx;
 
-  for (DataIdx = 0; DataIdx < len; DataIdx++)
-  {
-    ITM_SendChar(*ptr++);
-  }
-  return len;
+//   for (DataIdx = 0; DataIdx < len; DataIdx++)
+//   {
+//     ITM_SendChar(*ptr++);
+//   }
+//   return len;
+// }
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	__NOP();
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)
+{
+
+	__NOP();
+
 }
 /* USER CODE END 4 */
 

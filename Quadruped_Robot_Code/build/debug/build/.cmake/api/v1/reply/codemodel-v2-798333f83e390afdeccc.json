@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Quadruped_Robot_Code",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Quadruped_Robot_Code::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Quadruped_Robot_Code-Debug-fe1636b4191d0a3a99f0.json",
+					"name" : "Quadruped_Robot_Code",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code/build/debug/build",
+		"source" : "C:/Users/mouni/STM32CubeIDE/RVCE_EL_Project/Quadruped-Robot/Quadruped_Robot_Code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
