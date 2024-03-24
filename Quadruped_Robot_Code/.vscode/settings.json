@@ -24,7 +24,12 @@
     "moveleg.h": "c",
     "initbody.h": "c",
     "robot.h": "c",
-    "common_variables.h": "c"
+    "common_variables.h": "c",
+    "algorithm": "c",
+    "system_error": "cpp",
+    "random": "c",
+    "string_view": "cpp",
+    "initleg.h": "c"
   },
-  "cortex-debug.variableUseNaturalFormat": false,
+  "cortex-debug.variableUseNaturalFormat": true,
 }

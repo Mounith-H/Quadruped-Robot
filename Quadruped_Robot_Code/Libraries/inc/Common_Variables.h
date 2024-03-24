@@ -1,3 +1,19 @@
+// Set the pin numbers for the servos
+#define ServoFRT1 0 // Front Right Leg Top
+#define ServoFRB2 1 // Front Right Leg Bottom
+#define ServoFLT1 2 // Front Left Leg Top
+#define ServoFLB2 3 // Front Left Leg Bottom
+#define ServoBLT1 4 // Back Left Leg Top
+#define ServoBLB2 5 // Back Left Leg Bottom
+#define ServoBRT1 6 // Back Right Leg Top
+#define ServoBRB2 7 // Back Right Leg Bottom
+
+
+// Set the pin numbers for the servos on Sholder // TODO : For future use correnty not used
+#define ServoFRTS 8 // Front Left Leg Bottom
+#define ServoFLTS 9 // Front Left Leg Top
+#define ServoBLTS 10 // Front Right Leg Bottom
+#define ServoBRTS 11 // Front Right Leg Top
 
 // Set base stance
 float stanceWidth = 5.775; //TODO: Set the correct values
@@ -5,9 +21,9 @@ float stanceLength = 6.35; //TODO: Set the correct values
 float stanceHeight = 9; //TODO: Set the correct values
 
 // These variables describe a leg
-float LWF = 12.4;   // Length between the Wrist joint and the foot (Hip)
-float LTW = 11.0;   // Length between the Arms joint and the Wrist joint (Thigh)
-float LST = 5.5;    // Length between the Shoulder joint and the center line of the Arm (Shin)
+float upperLegLength = 11;   // Length between the Arms joint and the Wrist joint (Thigh)
+float lowerLegLength = 13;   // Length between the Wrist joint and the foot (shin)
+float sholderLength = 5.5;    // Length between the Shoulder joint and the center line of the Arm (hip)
 
 float ShoulderMin = 50.0;    // Minimum angle for the shoulder joint (Side)
 float ShoulderMax = 130.0;   // Maximum angle for the shoulder joint (Side)
