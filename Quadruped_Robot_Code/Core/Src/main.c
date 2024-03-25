@@ -58,7 +58,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 #define SelfInterpoints 40
 
 #define neutralPosLength 15 // in cm
-#define sitDownLength 5 // in cm
+#define sitDownLength 15 // in cm
 
 
 // Struct holding information of UART Data Received
@@ -91,7 +91,7 @@ bool runOnceFlag = FALSE;
 bool calibrateFlag = FALSE;
 bool neutralFlag = FALSE;
 char * delimeter = ",";
-uint8_t initialHeight = 5;
+uint8_t initialHeight = 15;
 double t1[128];
 double t2[128];
 /* USER CODE END PV */
@@ -188,8 +188,8 @@ void IK_UpDown_interPoints(uint8_t finalHeight,  uint8_t interPoints, double _t1
 {
   double x[40];
 
-  linspace(initialHeight, finalHeight, interPoints, x);
-  for(int i = 0; i < interPoints; i++)
+  linspace(finalHeight, initialHeight, interPoints, x);
+  for(int i = interPoints-1; i >= 0 ; i--)
   {
     _t1[i] = acosd((pow(upperLegLength,2) + pow(x[i],2) - pow(lowerLegLength,2))/(2*upperLegLength*x[i]));
     _t2[i] = acosd((pow(upperLegLength,2) + pow(lowerLegLength,2) - pow(x[i],2))/(2*upperLegLength*lowerLegLength));
