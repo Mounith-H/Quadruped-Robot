@@ -25,43 +25,14 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "pca9685.h"
 #include "MPU6050.h"
-
 #include "Robot.h"
 //#include "Common_Functions.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-
-#define TRUE  1
-#define FALSE 0
-
-#define PI 3.14
-
-#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-
-#define rx_data_Size 13
-#define UART_DELAY 10 //in ms
-
-#define Selfsoftdelay 10 // in ms
-#define SelfInterpoints 40
-
-#define neutralPosLength 15 // in cm
-#define sitDownLength 15 // in cm
-
-
-// Struct holding information of UART Data Received
 typedef struct {
   char* command;
   int radius;
@@ -69,6 +40,26 @@ typedef struct {
   int interPoints;
   int softDelay;
 } UARTData;
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+#define TRUE  1
+#define FALSE 0
+#define PI 3.14
+#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+#define rx_data_Size 13
+#define UART_DELAY 10 //in ms
+#define Selfsoftdelay 50 // in ms
+#define SelfInterpoints 40
+#define neutralPosLength 15 // in cm
+#define sitDownLength 15 // in cm
+
+// Struct holding information of UART Data Received
 
 /* USER CODE END PD */
 
@@ -94,6 +85,14 @@ char * delimeter = ",";
 uint8_t initialHeight = 15;
 double t1[128];
 double t2[128];
+
+double th1[40] = {113.1953,114.5020,115.7947,117.0730,118.3369,119.5862,120.8205,122.0396,123.2431,124.4306,125.6017,126.7560,127.8929,129.0121,130.1129,131.1948,132.2574,133.3000,134.3221,135.3232,136.3026,137.2597,138.1941,139.1052,139.9923,140.8549,141.6925,142.5045,143.2903,144.0496,144.7816,145.4860,146.1622,146.8098,147.4281,148.0168,148.5754,149.1033,149.6001,150.0652};
+
+double th2[40] = {104.1674,103.4252,102.7242,102.0640,101.4441,100.8641,100.3238,99.8230,99.3613,98.9387,98.5549,98.2098,97.9033,97.6353,97.4057,97.2145,97.0616,96.9469,96.8705,96.8323,96.8323,96.8705,96.9469,97.0616,97.2145,97.4057,97.6353,97.9033,98.2098,98.5549,98.9387,99.3613,99.8230,100.3238,100.8641,101.4441,102.0640,102.7242,103.4252,104.1674};
+
+double ts1[40] = {113.1953,120.0954,123.4125,126.1872,128.7008,131.0592,133.3146,135.4960,137.6205,139.6980,141.7337,143.7297,145.6859,147.5999,149.4683,151.2863,153.0483,154.7477,156.3777,157.9309,159.3997,160.7764,162.0532,163.2225,164.2765,165.2074,166.0076,166.6688,167.1825,167.5388,167.7267,167.7322,167.5374,167.1182,166.4394,165.4470,164.0491,162.0658,159.0311,150.0652};
+
+double ts2[40] = {104.1674,90.3440,84.9274,80.9240,77.6719,74.9164,72.5285,70.4329,68.5818,66.9427,65.4932,64.2171,63.1026,62.1411,61.3260,60.6526,60.1174,59.7180,59.4526,59.3201,59.3201,59.4526,59.7180,60.1174,60.6526,61.3260,62.1411,63.1026,64.2171,65.4932,66.9427,68.5818,70.4329,72.5285,74.9164,77.6719,80.9240,84.9274,90.3440,104.1674};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -151,10 +150,8 @@ void parseUARTMessage(char* message, char* token)
   {
     _token = strtok(NULL, token);
     if(_token == NULL) break;
-    if(i == 1) uartData.radius = atoi(_token);
-    else if(i == 2) uartData.length = atoi(_token);
-    else if(i == 3) uartData.interPoints = atoi(_token);
-    else if(i == 4) uartData.softDelay = atoi(_token);
+    if(i == 1) uartData.length = atoi(_token);
+    else if(i == 2) uartData.interPoints = atoi(_token);
   }
 }
 
@@ -186,7 +183,7 @@ void IK_Move_interPoints(uint8_t radiusofcircle, uint8_t xCoordinateCenterSemici
 
 void IK_UpDown_interPoints(uint8_t finalHeight,  uint8_t interPoints, double _t1[], double _t2[])
 {
-  double x[40];
+  double x[100];
 
   linspace(finalHeight, initialHeight, interPoints, x);
   for(int i = interPoints-1; i >= 0 ; i--)
@@ -230,16 +227,15 @@ void robotHeightPos(double _t1[],  double _t2[], int softPoolDelay)
   for(int i = 0; i < uartData.interPoints; i++)
   {
 
-    PCA9685_SetServoAngle(ServoFRT1, 180-_t1[i]); //front right
-    PCA9685_SetServoAngle(ServoFRB2, 180-_t2[i]); //front right
-    PCA9685_SetServoAngle(ServoFLT1, _t1[i]); //front left
-    PCA9685_SetServoAngle(ServoFLB2, _t2[i]); //front left
+    PCA9685_SetServoAngle(ServoFRT1, (180-t1[i])+5); //front right
+    PCA9685_SetServoAngle(ServoFRB2, (180-t2[i])); //front right
+    PCA9685_SetServoAngle(ServoFLT1, (t1[i])+5); //front left
+    PCA9685_SetServoAngle(ServoFLB2, (t2[i])+5); //front left
 
-    PCA9685_SetServoAngle(ServoBLT1, _t1[i]); //back left
-    PCA9685_SetServoAngle(ServoBLB2, _t2[i]); //back left
-    PCA9685_SetServoAngle(ServoBRT1, 180-_t1[i]); //back right
-    PCA9685_SetServoAngle(ServoBRB2, 180-_t2[i]); //back right
-
+    PCA9685_SetServoAngle(ServoBLT1, t1[i]); //back left
+    PCA9685_SetServoAngle(ServoBLB2, t2[i]); //back left
+    PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+    PCA9685_SetServoAngle(ServoBRB2, 180-t2[i]); //back right
     HAL_Delay(softPoolDelay);
   }
   HAL_UART_Transmit(&huart1, (uint8_t *)"Robot is now on Specified height position\r\n", 42, UART_DELAY);
@@ -270,15 +266,15 @@ void robotNeutralPos(double _t1[],  double _t2[], int softPoolDelay)
   HAL_UART_Transmit(&huart1, (uint8_t *)"Moving robot to neutral position...\r\n", 36, UART_DELAY);
   for(int i = 0; i < uartData.interPoints; i++)
   {
-    PCA9685_SetServoAngle(ServoFRT1, 180-_t1[i]); //front right
-    PCA9685_SetServoAngle(ServoFRB2, 180-_t2[i]); //front right
-    PCA9685_SetServoAngle(ServoFLT1, _t1[i]); //front left
-    PCA9685_SetServoAngle(ServoFLB2, _t2[i]); //front left
+    PCA9685_SetServoAngle(ServoFRT1, (180-t1[i])+5); //front right
+    PCA9685_SetServoAngle(ServoFRB2, (180-t2[i])); //front right
+    PCA9685_SetServoAngle(ServoFLT1, (t1[i])+5); //front left
+    PCA9685_SetServoAngle(ServoFLB2, (t2[i])+5); //front left
 
-    PCA9685_SetServoAngle(ServoBLT1, _t1[i]); //back left
-    PCA9685_SetServoAngle(ServoBLB2, _t2[i]); //back left
-    PCA9685_SetServoAngle(ServoBRT1, 180-_t1[i]); //back right
-    PCA9685_SetServoAngle(ServoBRB2, 180-_t2[i]); //back right
+    PCA9685_SetServoAngle(ServoBLT1, t1[i]); //back left
+    PCA9685_SetServoAngle(ServoBLB2, t2[i]); //back left
+    PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+    PCA9685_SetServoAngle(ServoBRB2, 180-t2[i]); //back right
     HAL_Delay(softPoolDelay);
   }
   HAL_UART_Transmit(&huart1, (uint8_t *)"Robot is now in neutral position\r\n", 34, UART_DELAY);
@@ -315,6 +311,7 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
   HAL_UART_Receive_IT(&huart1, rx_data, rx_data_Size);
   DisplayInitialMsg();
   PCA9685_Init(&hi2c1);
@@ -366,25 +363,29 @@ int main(void)
         break;
 
         case 'n': // move robot to neutral position
-        IK_UpDown_interPoints(neutralPosLength, uartData.interPoints, t1, t2);
+        uartData.interPoints = 50;
+        IK_UpDown_interPoints(20, 50, t1, t2);
         neutralFlag = FALSE;
         runOnceFlag = TRUE;
         break;
 
         case 's': // sit down robot
-        IK_UpDown_interPoints(sitDownLength, uartData.interPoints, t1, t2);
-        calibrateFlag = FALSE;
-        neutralFlag = FALSE;
         runOnceFlag = TRUE;
         break;
 
         case 'm': // move gait
-        IK_Move_interPoints(uartData.radius, 0, 18, uartData.interPoints, t1, t2);
-        calibrateFlag = FALSE;
-        neutralFlag = FALSE;
         break;
 
         case 'b': // balance robot
+        break;
+
+        case 'u': // situp robot
+        initialHeight = 10;
+        uartData.interPoints = 50;
+        break;
+
+        case 'f': // Standing robot
+        runOnceFlag = TRUE;
         break;
 
         default:
@@ -408,7 +409,7 @@ int main(void)
         case 'h': // robot to height position
         if(runOnceFlag)
         {
-          robotHeightPos(t1, t2, uartData.softDelay);
+          robotHeightPos(t1, t2, Selfsoftdelay);
           runOnceFlag = FALSE;
         }
         break;
@@ -416,8 +417,25 @@ int main(void)
         case 'n': // move robot to neutral position
         if(runOnceFlag)
         {
-          robotNeutralPos(t1, t2, uartData.softDelay);
+          robotHeightPos(t1, t2, Selfsoftdelay);
           neutralFlag = TRUE;
+          runOnceFlag = FALSE;
+        }
+        break;
+
+        case 'f': // move robot to Standing position
+        if(runOnceFlag)
+        {
+          PCA9685_SetServoAngle(ServoFRT1, (90+5)); //front right
+          PCA9685_SetServoAngle(ServoFRB2, (0)); //front right
+          PCA9685_SetServoAngle(ServoFLT1, (90)+10); //front left
+          PCA9685_SetServoAngle(ServoFLB2, (180)+5); //front left
+
+          PCA9685_SetServoAngle(ServoBLT1, 90); //back left
+          PCA9685_SetServoAngle(ServoBLB2, 180); //back left
+          PCA9685_SetServoAngle(ServoBRT1, 90-10); //back right
+          PCA9685_SetServoAngle(ServoBRB2, 0); //back right
+          HAL_Delay(50);
           runOnceFlag = FALSE;
         }
         break;
@@ -425,25 +443,57 @@ int main(void)
         case 's': // sit down robot
         if(runOnceFlag)
         {
-          robotSitDown(t1, t2, uartData.softDelay);
+          PCA9685_SetServoAngle(ServoFRT1, (90+5)); //front right
+          PCA9685_SetServoAngle(ServoFRB2, (90)); //front right
+          PCA9685_SetServoAngle(ServoFLT1, (90)+5); //front left
+          PCA9685_SetServoAngle(ServoFLB2, (90)+5); //front left
+
+          PCA9685_SetServoAngle(ServoBLT1, 90); //back left
+          PCA9685_SetServoAngle(ServoBLB2, 90); //back left
+          PCA9685_SetServoAngle(ServoBRT1, 90); //back right
+          PCA9685_SetServoAngle(ServoBRB2, 90-5); //back right
+          HAL_Delay(50);
           runOnceFlag = FALSE;
         }
         break;
 
+        case 'u': // sit up robot
+        IK_UpDown_interPoints(22, 50, t1, t2);
+        robotHeightPos(t1, t2, Selfsoftdelay);
+        IK_UpDown_interPoints(10, 50, t1, t2);
+        robotHeightPos(t1, t2, Selfsoftdelay);
+
+        break;
+
         case 'm': // move gait
-        if(neutralFlag)
+        for(int i = 39; i >= 0; i--)
         {
-          softPool(t1,t2, uartData.softDelay);
+          PCA9685_SetServoAngle(ServoFRT1, (180-ts1[i])+5); //front right
+          PCA9685_SetServoAngle(ServoFRB2, (180-ts2[i])); //front right
+          PCA9685_SetServoAngle(ServoFLT1, (th1[39-i])+5); //front left
+          PCA9685_SetServoAngle(ServoFLB2, (th2[39-i])+5); //front left
+
+          PCA9685_SetServoAngle(ServoBLT1, ts1[i]); //back left
+          PCA9685_SetServoAngle(ServoBLB2, ts2[i]); //back left
+          PCA9685_SetServoAngle(ServoBRT1, 180-th1[39-i]); //back right
+          PCA9685_SetServoAngle(ServoBRB2, 180-th2[39-i]); //back right
+          HAL_Delay(50);
         }
-        else
+
+        for(int i = 0; i < 39; i++)
         {
-          HAL_UART_Transmit(&huart1, (uint8_t *)"ERROR!! -- Robot not in neutral position\r\n", 42, UART_DELAY);
-          HAL_UART_Transmit(&huart1, (uint8_t *)"Resolving ERROR........\r\n", 25, UART_DELAY);
-          IK_UpDown_interPoints(neutralPosLength, SelfInterpoints, t1, t2);
-          robotNeutralPos(t1, t2, Selfsoftdelay);
-          HAL_UART_Transmit(&huart1, (uint8_t *)"ERROR Resolved -- Robot on moving gait\r\n", 39, UART_DELAY);
-          neutralFlag = TRUE;
+          PCA9685_SetServoAngle(ServoFRT1, (180-th1[i])+5); //front right
+          PCA9685_SetServoAngle(ServoFRB2, (180-th2[i])); //front right
+          PCA9685_SetServoAngle(ServoFLT1, (ts1[39-i])+5); //front left
+          PCA9685_SetServoAngle(ServoFLB2, (ts2[39-i])+5); //front left
+
+          PCA9685_SetServoAngle(ServoBLT1, th1[i]); //back left
+          PCA9685_SetServoAngle(ServoBLB2, th2[i]); //back left
+          PCA9685_SetServoAngle(ServoBRT1, 180-ts1[39-i]); //back right
+          PCA9685_SetServoAngle(ServoBRB2, 180-ts2[39-i]); //back right
+          HAL_Delay(50);
         }
+
         break;
 
         case 'b': // balance robot
@@ -482,7 +532,6 @@ int main(void)
         break;
       }
     }
-    HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -631,9 +680,7 @@ static void MX_GPIO_Init(void)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
   UNUSED(huart);
-  // HAL_UART_Transmit(&huart1, rx_data, rx_data_Size, 10);
   DataReceaved = TRUE;
-  // HAL_UART_Receive_IT(&huart1, rx_data, rx_data_Size);
 }
 
 /* USER CODE END 4 */

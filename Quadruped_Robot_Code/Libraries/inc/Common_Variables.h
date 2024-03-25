@@ -14,6 +14,7 @@
 #define ServoFLTS 9 // Front Left Leg Top
 #define ServoBLTS 10 // Front Right Leg Bottom
 #define ServoBRTS 11 // Front Right Leg Top
+// TODO : For future use correnty not used
 
 // Set base stance
 float stanceWidth = 5.775; //TODO: Set the correct values
@@ -23,10 +24,13 @@ float stanceHeight = 9; //TODO: Set the correct values
 // These variables describe a leg
 float upperLegLength = 11;   // Length between the Arms joint and the Wrist joint (Thigh)
 float lowerLegLength = 13;   // Length between the Wrist joint and the foot (shin)
-float sholderLength = 5.5;    // Length between the Shoulder joint and the center line of the Arm (hip)
 
+// TODO : For future use correnty not used
+float sholderLength = 5.5;    // Length between the Shoulder joint and the center line of the Arm (hip)
+float ShoulderRest = 90.0;  // Resting angle for the shoulder joint (Side)
 float ShoulderMin = 50.0;    // Minimum angle for the shoulder joint (Side)
 float ShoulderMax = 130.0;   // Maximum angle for the shoulder joint (Side)
+// TODO : For future use correnty not used
 
 float ArmMin = 15.0;         // Minimum angle for the arm joint (Hip)
 float ArmMax = 165.0;        // Maximum angle for the arm joint (Hip)
@@ -34,7 +38,7 @@ float ArmMax = 165.0;        // Maximum angle for the arm joint (Hip)
 float WristMin = 50.0;       // Minimum angle for the wrist joint (Knee)
 float WristMax = 180.0;      // Maximum angle for the wrist joint (Knee)
 
-float ShoulderRest = 90.0;  // Resting angle for the shoulder joint (Side)
+
 float ArmRest = 138.0;       // Resting angle for the arm joint (Hip)
 float WristRest = 50.0;      // Resting angle for the wrist joint (Knee)
 

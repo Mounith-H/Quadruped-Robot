@@ -1,0 +1,60 @@
+    for(int i = 39; i >= 0; i--)
+    {
+
+      PCA9685_SetServoAngle(ServoFRT1, (180-t1[i])+5); //front right
+      PCA9685_SetServoAngle(ServoFRB2, (180-t2[i])); //front right
+      PCA9685_SetServoAngle(ServoFLT1, (t1[i])+5); //front left
+      PCA9685_SetServoAngle(ServoFLB2, (t2[i])+5); //front left
+
+      PCA9685_SetServoAngle(ServoBLT1, t1[i]); //back left
+      PCA9685_SetServoAngle(ServoBLB2, t2[i]); //back left
+      PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+      PCA9685_SetServoAngle(ServoBRB2, 180-t2[i]); //back right
+      HAL_Delay(50);
+    }
+
+        for(int i = 0; i < 40; i++)
+    {
+
+      PCA9685_SetServoAngle(ServoFRT1, (180-th1[i])+5); //front right
+      PCA9685_SetServoAngle(ServoFRB2, (180-th2[i])); //front right
+      PCA9685_SetServoAngle(ServoFLT1, (th1[i])+5); //front left
+      PCA9685_SetServoAngle(ServoFLB2, (th2[i])+5); //front left
+
+      PCA9685_SetServoAngle(ServoBLT1, th1[i]); //back left
+      PCA9685_SetServoAngle(ServoBLB2, th2[i]); //back left
+      PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+      PCA9685_SetServoAngle(ServoBRB2, 180-t2[i]); //back right
+      HAL_Delay(50);
+    }
+
+
+  // for(int i = 39; i >= 0; i--)
+    // {
+    //
+    //   PCA9685_SetServoAngle(ServoFRT1, (180-t1[i])+5); //front right
+    //   PCA9685_SetServoAngle(ServoFRB2, (180-t2[i])); //front right
+    //   PCA9685_SetServoAngle(ServoFLT1, (t1[i])+5); //front left
+    //   PCA9685_SetServoAngle(ServoFLB2, (t2[i])+5); //front left
+
+    //   PCA9685_SetServoAngle(ServoBLT1, t1[i]); //back left
+    //   PCA9685_SetServoAngle(ServoBLB2, t2[i]); //back left
+    //   PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+         PCA9685_SetServoAngle(15, 180-t2[i]); //back right
+    //   HAL_Delay(100);
+    // }
+
+    // for(int i = 0; i < 40; i++)
+    // {
+    //
+    //   PCA9685_SetServoAngle(ServoFRT1, (180-th1[i])+5); //front right
+    //   PCA9685_SetServoAngle(ServoFRB2, (180-th2[i])); //front right
+    //   PCA9685_SetServoAngle(ServoFLT1, (th1[i])+5); //front left
+    //   PCA9685_SetServoAngle(ServoFLB2, (th2[i])+5); //front left
+
+    //   PCA9685_SetServoAngle(ServoBLT1, th1[i]); //back left
+    //   PCA9685_SetServoAngle(ServoBLB2, th2[i]); //back left
+    //   PCA9685_SetServoAngle(ServoBRT1, 180-t1[i]); //back right
+         PCA9685_SetServoAngle(15, 180-t2[i]); //back right
+    //   HAL_Delay(100);
+    // }
