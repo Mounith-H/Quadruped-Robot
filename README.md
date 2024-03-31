@@ -1,5 +1,6 @@
 # Quadruped-Robot
-This repository is based on college project which gives an basic idea of on Qua. Based on single STM32F103CBT6 microcontroller, MPU6050 and PCA9685 driver board.
+This repository is based on college project. Work on single STM32F103CBT6 microcontroller, MPU6050 and PCA9685 driver board.
+
 Due to lack of resources the project was temporarily discounted.
 
 Work done so for:
