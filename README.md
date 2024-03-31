@@ -18,3 +18,4 @@ https://spotmicroai.readthedocs.io/en/latest/
 https://github.com/mike4192/spotMicro
 https://gitlab.com/public-open-source/spotmicroai
 https://novaspotmicro.com/
+https://github.com/leech001/MPU6050
